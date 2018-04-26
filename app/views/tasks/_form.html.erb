@@ -1,4 +1,15 @@
 <%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% task.errors.full_tasks.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <%= f.label :status, '状態' %>
   <%= f.text_field :status %>
 
