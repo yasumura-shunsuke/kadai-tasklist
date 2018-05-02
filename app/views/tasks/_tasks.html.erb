@@ -1,0 +1,14 @@
+<ul class="media-list">
+  <% tasks.each do |task| %>
+    <li class="media">
+      <div class="media-left">
+        <img class="media-object img-rounded" src="<%= gravatar_url(task.user, options = { size: 50 }) %>" alt="">
+      </div>
+      <div class="media-body">
+        <li><%= link_to task.id, task_path(task.id) %> : <%= task.status %> &gt; <%= task.content %></li>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate tasks %>
+</ul>
+
